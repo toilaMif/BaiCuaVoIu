@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYENANHTU_22695091</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/NAT.css">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kiểm tra nhập liệu</h1>
+        <ul>
+            <li><a href="" data-toggle="modal" data-target="#modelId">Trang Chủ</a></li>
+            <li><a href="" data-toggle="modal" data-target="#modelId">Kiểm Tra</a></li>
+        </ul>
+        <h5>Mã Sinh Viên: 22695091</h5>
+        <h5>Họ tên: Nguyễn Anh Tú</h5>
+        <h5>Lớp: </h5>
+        </header>
+        
+    </div>
+</body>
+</html>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Kiểm tra nhập liệu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3">
+                    <div class="col-3">Mã Học Viên:</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="12345" id="mssv" onblur="ktmssv()">
+                    </div>
+
+                    <div class="col-3">
+                        <span id="errmssv">*</span>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3">Họ Tên:</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="hoten" placeholder="Tran Thu Trang" onblur="ktname()">
+                    </div>
+
+                    <div class="col-3">
+                        <span id="errhoten">*</span>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3">Email:</div>
+                    <div class="col-6">
+                        <input type="email" class="form-control" id="email" placeholder="trangthanh_12@gmail.com" onblur="ktemail()">
+                    </div>
+
+                    <div class="col-3">
+                        <span id="erremail">*</span>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <button type="button" id="chapnhan" class="btn form-control" style="background-color: green;" data-dismiss="modal">Chấp Nhận</button>
+
+                    </div>
+                    <div class="col-6">
+                        <button type="button" id="huy" class="btn form-control bg-danger" data-dismiss="modal">Hủy</button>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h5 class="modal-title">Kiểm tra nhập liệu</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    function ktmssv(){
+    var mssv = document.getElementById('mssv').value;
+    var ktmssv = /^[0-9]{5}$/;
+    var kqmssv = ktmssv.test(mssv);
+    var errmssv = document.getElementById('errmssv');
+    if(mssv == "" || mssv == null){
+        errmssv.innerHTML = "không được để trống";
+        return false;
+    }
+    else if(kqmssv){
+        errmssv.innerHTML = "";
+        return true;
+    }else{
+        errmssv.innerHTML = "Nhập sai";
+        return false;
+    }
+}
+
+function ktname(){
+    var hoten = document.getElementById('hoten').value;
+    var Name = /^([A-Z][a-z]*\s){1,}[A-Z][a-z]*$/;
+    var kqname = Name.test(hoten);
+    if(hoten == "" || hoten == null){
+        errhoten.innerHTML = "Họ tên không được để trống";
+        return false;
+    }
+    else if(kqname){
+        errhoten.innerHTML = "";
+        return true;
+    }else{
+        errhoten.innerHTML = "Nhập sai không viết hoa chữ cái đầu hoặt ít hơn 2 từ";
+        return false;
+        
+    }
+    
+}
+function ktemail(){
+    var email = document.getElementById('email').value;
+    var emailPattern = /^[a-zA-Z_]{3,}_[0-9]{2}@gmail\.com$/;
+    var kqemail = emailPattern.test(email);
+    var erremail = document.getElementById('erremail');
+    if(email == "" || email == null){
+        erremail.innerHTML = "Email không được để trống";
+        return false;
+    }
+    else if(kqemail){
+        erremail.innerHTML = "";
+        return true;
+    }else{
+        erremail.innerHTML = "Nhập sai định dạng Email";
+        return false;
+    }
+}
+
+
+</script>

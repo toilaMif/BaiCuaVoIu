@@ -1,0 +1,18 @@
+.container{
+    width: 960px;
+    height: 600px;
+    border: 1px solid rgb(0, 100, 128);
+    position: relative;
+}
+header{
+    border: 1px solid darkgrey;
+}
+header ul li {
+    display: inline;
+    margin-left: 20px;
+}
+header h5{
+    display: inline;
+    margin-left: 40px;
+
+}
